@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Take a jacket</title>
+    <link rel="stylesheet" href="Style/Style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/55038d5fb3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container rounded">
+      <header>
+        <h1>
+          Do I need a jacket?
+        </h1>
+      </header>
+      <p>
+        I'd recommend a jacket
+      </p>
+      <form id="city-form">
+        <input
+          type="text"
+          placeholder="Type your city here"
+          id="city-input"
+          autofocus="Aberdeen"
+        />
+        <input type="submit" />
+      </form>
+      <h2 class="city">
+        <strong>Aberdeen </strong>
+      </h2>
+      <button>Current location</button>
+      <h3>
+        Thursday 2nd July 2020
+      </h3>
+      <div class="row">
+        <div class="col-5">
+          <img
+            class="todayPhoto rounded"
+            src="https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            alt=""
+            width="300"
+          />
+        </div>
+        <div class="col-2 todayTemp">
+          <span class="temp-number">
+            15°
+          </span>
+          <br />
+          <i class="fas fa-sun"></i>
+        </div>
+        <div class="col-1 unit-conversion">
+          <a href="" id="celsius">°C</a> / <a href="" id="fahrenheit">°F</a>
+          <br />
+        </div>
+        <div class="col-2">
+          <ul class="todayDetails">
+            <li>
+              Chance of rain
+            </li>
+            <li>
+              Max windspeed
+            </li>
+            <li>
+              UV
+            </li>
+            <li>
+              Pollen
+            </li>
+            <li>
+              Sunrise
+            </li>
+            <li>
+              Sunset
+            </li>
+          </ul>
+        </div>
+        <div class="col-1 todayDetailsValues">
+          <ul class="todayDetailsValues">
+            <li>
+              10%
+            </li>
+            <li>
+              20mph
+            </li>
+            <li>
+              High
+            </li>
+            <li>
+              High
+            </li>
+            <li>
+              04:10
+            </li>
+            <li>
+              22:20
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row thisWeek">
+        <div class="col">
+          Friday
+          <br />
+          <span class="thisWeekEmoji">
+            <i class="fas fa-sun"></i>
+          </span>
+          <br />
+          15°
+        </div>
+        <div class="col">
+          Saturday
+          <br />
+          <span class="thisWeekEmoji">
+            <i class="fas fa-sun"></i>
+          </span>
+          <br />
+          15°
+        </div>
+        <div class="col">
+          Sunday
+          <br />
+          <span class="thisWeekEmoji">
+            <i class="fas fa-sun"></i>
+          </span>
+          <br />
+          15°
+        </div>
+        <div class="col">
+          Monday
+          <br />
+          <span class="thisWeekEmoji">
+            <i class="fas fa-sun"></i>
+          </span>
+          <br />
+          15°
+        </div>
+        <div class="col">
+          Tuesday
+          <br />
+          <span class="thisWeekEmoji">
+            <i class="fas fa-sun"></i>
+          </span>
+          <br />
+          15°
+        </div>
+      </div>
+    </div>
+    <script src="Scripts/index.js"></script>
+  </body>
+</html>

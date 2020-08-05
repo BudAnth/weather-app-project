@@ -91,12 +91,34 @@ h3.innerHTML = `${currentTime}`;
 function displayData(response) {
   console.log(response);
   let cityInput = document.querySelector("#city-input");
-  let currentTemp = Math.round(response.data.main.temp);
-  let tempInC = document.querySelector(".temp-number");
+
+  let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
-  tempInC.innerHTML = `${currentTemp}`;
+  let windspeed = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
+  let sunrise = new Date(1000 * response.data.sys.sunrise);
+  let sunriseHour = sunrise.getHours();
+  let sunriseMinute = sunrise.getMinutes();
+  let sunset = new Date(1000 * response.data.sys.sunset);
+  let sunsetHour = sunset.getHours();
+  let sunsetMinute = sunset.getMinutes();
+
+  let currentTemperature = document.querySelector(".temp-number");
   let currentDescription = document.querySelector("#description");
+  let currentWindspeed = document.querySelector("#windspeed");
+  let currentHumidity = document.querySelector("#humidity");
+  let currentSunrise = document.querySelector("#sunrise");
+  let currentSunset = document.querySelector("#sunset");
+
+  currentTemperature.innerHTML = `${temperature}`;
   currentDescription.innerHTML = `${description}`;
+  currentWindspeed.innerHTML = `${windspeed} km/h`;
+  currentHumidity.innerHTML = `${humidity} %`;
+  currentSunrise.innerHTML = `${sunriseHour}:${sunriseMinute}`;
+  currentSunset.innerHTML = `${sunsetHour}:${sunsetMinute}`;
+
+  let date = new Date(sunrise);
+  console.log(days[date.getDay()]);
 }
 
 function changeCity(event) {

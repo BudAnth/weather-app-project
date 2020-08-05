@@ -88,12 +88,15 @@ h3.innerHTML = `${currentTime}`;
 
 // display city and temp when the user has submitted their city
 
-function displayTemp(response) {
+function displayData(response) {
   console.log(response);
   let cityInput = document.querySelector("#city-input");
   let currentTemp = Math.round(response.data.main.temp);
   let tempInC = document.querySelector(".temp-number");
+  let description = response.data.weather[0].description;
   tempInC.innerHTML = `${currentTemp}`;
+  let currentDescription = document.querySelector("#description");
+  currentDescription.innerHTML = `${description}`;
 }
 
 function changeCity(event) {
@@ -104,7 +107,7 @@ function changeCity(event) {
   let apiKey = "8c1527d5b6b661420a7bcaa7170c7301";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric`;
 
-  axios.get(`${apiURL}&appid=${apiKey}`).then(displayTemp);
+  axios.get(`${apiURL}&appid=${apiKey}`).then(displayData);
 }
 
 let cityForm = document.querySelector("#city-form");

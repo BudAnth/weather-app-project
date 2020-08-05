@@ -39,6 +39,10 @@ img {
   margin: 0 auto;
 }
 
+li:first-letter {
+  text-transform: capitalize;
+}
+
 .city {
   font-size: 50px;
 }

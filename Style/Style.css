@@ -45,6 +45,7 @@ img {
 
 .container {
   background-image: linear-gradient(180deg, #f6d4657c 0%, #fd9f8577 100%);
+  min-width: 800px;
 }
 
 .todayPhoto {
@@ -91,4 +92,7 @@ img {
 .thisWeekEmoji {
   font-size: 60px;
   line-height: 60px;
+}
+
+.open-course {
 }

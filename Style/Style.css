@@ -45,7 +45,7 @@ img {
 
 .container {
   background-image: linear-gradient(180deg, #f6d4657c 0%, #fd9f8577 100%);
-  min-width: 800px;
+  min-width: 1000px;
 }
 
 .todayPhoto {

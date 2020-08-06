@@ -37,12 +37,6 @@ p {
   right: 100px;
 }
 
-img {
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-}
-
 button {
   display: block;
 }
@@ -55,6 +49,11 @@ h2::first-letter {
   text-transform: capitalize;
 }
 
+.todayPhoto {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
 .city {
   font-size: 50px;
   font-weight: light;
@@ -90,7 +89,7 @@ h2::first-letter {
   font-size: 80px;
   font-family: "Assistant", sans-serif;
   line-height: 80px;
-  text-align: left;
+  text-align: center;
 }
 
 .unit-conversion {
@@ -125,7 +124,11 @@ h2::first-letter {
   line-height: 60px;
 }
 
-.open-course {
+#current-icon {
+  display: block;
+  margin-left: 0;
+  width: 150px;
+  text-align: center;
 }
 
 #date {

@@ -26,6 +26,10 @@ h2 {
   font-family: "Assistant", sans-serif;
 }
 
+h3 {
+  font-weight: lighter;
+}
+
 p {
   position: fixed;
   text-align: right;
@@ -39,12 +43,35 @@ img {
   margin: 0 auto;
 }
 
+button {
+  display: block;
+}
+
 li:first-letter {
+  text-transform: capitalize;
+}
+
+h2::first-letter {
   text-transform: capitalize;
 }
 
 .city {
   font-size: 50px;
+  font-weight: light;
+  border-color: lightgrey;
+}
+
+.city-input {
+  border-radius: 2px;
+  border-color: lightgrey;
+  margin-left: 20px;
+}
+
+.city-form {
+  border-radius: 2px;
+  border-color: lightgrey;
+  padding: 10px;
+  margin-left: 20px;
 }
 
 .container {
@@ -99,4 +126,8 @@ li:first-letter {
 }
 
 .open-course {
+}
+
+#date {
+  font-weight: lighter;
 }

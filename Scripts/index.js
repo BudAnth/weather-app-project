@@ -4,6 +4,7 @@ let now = new Date();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let months = [
   "Jan",
+  "Jan",
   "Feb",
   "Mar",
   "Apr",
@@ -102,6 +103,7 @@ function displayData(response) {
   let sunset = new Date(1000 * response.data.sys.sunset);
   let sunsetHour = sunset.getHours();
   let sunsetMinute = sunset.getMinutes();
+  let iconType = response.data.weather[0].icon;
 
   let currentTemperature = document.querySelector(".temp-number");
   let currentDescription = document.querySelector("#description");
@@ -109,13 +111,18 @@ function displayData(response) {
   let currentHumidity = document.querySelector("#humidity");
   let currentSunrise = document.querySelector("#sunrise");
   let currentSunset = document.querySelector("#sunset");
+  let currentIcon = document.querySelector("#current-icon");
 
-  currentTemperature.innerHTML = `${temperature}`;
+  currentTemperature.innerHTML = `${temperature}°`;
   currentDescription.innerHTML = `${description}`;
   currentWindspeed.innerHTML = `${windspeed} km/h`;
   currentHumidity.innerHTML = `${humidity} %`;
   currentSunrise.innerHTML = `${sunriseHour}:${sunriseMinute}`;
   currentSunset.innerHTML = `${sunsetHour}:${sunsetMinute}`;
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconType}@2x.png`
+  );
 
   let date = new Date(sunrise);
   console.log(days[date.getDay()]);
@@ -139,8 +146,10 @@ cityForm.addEventListener("submit", changeCity);
 
 function changeToFahrenheit(event) {
   event.preventDefault();
+  let currentTemp = Math.round(response.data.main.temp);
+  let currentTempInF = (currentTemp * 9) / 5 + 32;
   let tempInF = document.querySelector(".temp-number");
-  tempInF.innerHTML = "66°";
+  tempInF.innerHTML = `${currentTempInF}`;
 }
 
 let toFahrenheit = document.querySelector("#fahrenheit");
@@ -162,7 +171,7 @@ function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   h2.innerHTML = `${response.data.name}`;
   let tempInF = document.querySelector(".temp-number");
-  tempInF.innerHTML = `${temperature}`;
+  tempInF.innerHTML = `${temperature}°`;
 }
 
 function retrievePosition(position) {

@@ -36,17 +36,19 @@
         <div class="col-6">
         <form id="city-form">
           <input
-            type="text"
+            type="search"
             placeholder="Type your city here"
             id="city-input"
             class="form-control"
+            autocomplete="off"
+            autofocus="off"
           />
         </div>
         <div class="col-1">
-          <input type="submit" class="btn btn-primary  w-200" />
+          <input type="submit" class="btn btn-primary  w-200" value="Search" />
         </div>
         <div class="col-2">
-          <button type="button" class="btn btn-secondary w-500">
+          <button type="button" class="btn btn-secondary w-500" id="change-loc">
             Current Location
           </button>
         </div>
@@ -62,7 +64,7 @@
         Thursday 2nd July 2020
       </h3>
       <div class="row">
-        <div class="col-5">
+        <div class="col-4">
           <img
             class="todayPhoto rounded"
             src="https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -104,7 +106,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-1 todayDetailsValues">
+        <div class="col-2 todayDetailsValues">
           <ul class="todayDetailsValues">
             <li id="description">
               Clouds

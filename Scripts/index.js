@@ -101,7 +101,7 @@ function displayData(response) {
   temperature = Math.round(response.data.main.temp);
   let name = response.data.name;
   let description = response.data.weather[0].description;
-  let windspeed = response.data.wind.speed;
+  let windspeed = Math.round(2.23694 * response.data.wind.speed);
   let humidity = response.data.main.humidity;
   let sunrise = new Date(1000 * response.data.sys.sunrise);
   let sunriseHour = sunrise.getHours();
@@ -137,7 +137,7 @@ function displayData(response) {
   currentName.innerHTML = `${name}`;
   currentTemperature.innerHTML = `${temperature}°`;
   currentDescription.innerHTML = `${description}`;
-  currentWindspeed.innerHTML = `${windspeed} km/h`;
+  currentWindspeed.innerHTML = `${windspeed} mph`;
   currentHumidity.innerHTML = `${humidity} %`;
   currentSunrise.innerHTML = `${sunriseHour}:${sunriseMinute}`;
   currentSunset.innerHTML = `${sunsetHour}:${sunsetMinute}`;

@@ -147,12 +147,50 @@ function displayData(response) {
   );
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+function displayForecast(response) {
+  let currentForecast = document.querySelector("#forecast");
+  let forecast = null;
+  currentForecast.innerHTML = null;
+
+  for (let index = 0; index < 5; index++) {
+    let forecast = response.data.list[index];
+
+    currentForecast.innerHTML += `        <div class="col">
+          ${formatHours(forecast.dt * 1000)}
+          <br />
+          <span class="thisWeekEmoji">
+            <img            src="http://openweathermap.org/img/wn/${
+              forecast.weather[0].icon
+            }@2x.png"
+            alt="">
+          </span>
+          <br />
+          ${Math.round(forecast.main.temp_max)}°
+        </div>`;
+  }
+}
+
 // grab the data from the city the user has entered
 
 function changeCity(city) {
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-
   axios.get(`${apiURL}&appid=${apiKey}`).then(displayData);
+
+  apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
+  axios.get(`${apiURL}&appid=${apiKey}`).then(displayForecast);
 }
 
 function submitForm(event) {
@@ -192,8 +230,12 @@ toCelsius.addEventListener("click", changeToCelsius);
 function retrievePosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
+
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(displayData);
+
+  url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric`;
+  axios.get(`${url}&appid=${apiKey}`).then(displayForecast);
 }
 
 function getLocation() {

@@ -161,6 +161,8 @@ function formatHours(timestamp) {
 }
 
 function displayForecast(response) {
+  console.log(response);
+
   let currentForecast = document.querySelector("#forecast");
   let forecast = null;
   currentForecast.innerHTML = null;

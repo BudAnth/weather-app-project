@@ -101,6 +101,7 @@ function displayData(response) {
   temperature = Math.round(response.data.main.temp);
   let name = response.data.name;
   let description = response.data.weather[0].description;
+
   let windspeed = Math.round(2.23694 * response.data.wind.speed);
   let humidity = response.data.main.humidity;
   let sunrise = new Date(1000 * response.data.sys.sunrise);
@@ -162,6 +163,10 @@ function formatHours(timestamp) {
 
 function displayForecast(response) {
   console.log(response);
+
+  let precipitation = Math.round(response.data.list[0].pop * 100);
+  let currentPrecip = document.querySelector("#precipitation");
+  currentPrecip.innerHTML = `${precipitation} %`;
 
   let currentForecast = document.querySelector("#forecast");
   let forecast = null;

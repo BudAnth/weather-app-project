@@ -41,7 +41,7 @@ button {
   display: block;
 }
 
-li:first-letter {
+#tt::first-letter {
   text-transform: capitalize;
 }
 

@@ -137,7 +137,7 @@ function displayData(response) {
 
   currentName.innerHTML = `${name}`;
   currentTemperature.innerHTML = `${temperature}°`;
-  currentDescription.innerHTML = `Description:   ${description}`;
+  currentDescription.innerHTML = `Description: <span id="tt">  ${description} </span>`;
   currentWindspeed.innerHTML = `Windspeed:   ${windspeed} mph`;
   currentHumidity.innerHTML = `Humidity:   ${humidity} %`;
   currentSunrise.innerHTML = `Sunrise:   ${sunriseHour}:${sunriseMinute}`;

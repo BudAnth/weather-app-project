@@ -146,6 +146,9 @@ function displayData(response) {
     "src",
     `http://openweathermap.org/img/wn/${iconType}@2x.png`
   );
+
+  //let resetInput = document.querySelector("#city-input");
+  //resetInput.value.reset();
 }
 
 function formatHours(timestamp) {

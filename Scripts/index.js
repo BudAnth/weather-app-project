@@ -137,11 +137,11 @@ function displayData(response) {
 
   currentName.innerHTML = `${name}`;
   currentTemperature.innerHTML = `${temperature}°`;
-  currentDescription.innerHTML = `${description}`;
-  currentWindspeed.innerHTML = `${windspeed} mph`;
-  currentHumidity.innerHTML = `${humidity} %`;
-  currentSunrise.innerHTML = `${sunriseHour}:${sunriseMinute}`;
-  currentSunset.innerHTML = `${sunsetHour}:${sunsetMinute}`;
+  currentDescription.innerHTML = `Description:   ${description}`;
+  currentWindspeed.innerHTML = `Windspeed:   ${windspeed} mph`;
+  currentHumidity.innerHTML = `Humidity:   ${humidity} %`;
+  currentSunrise.innerHTML = `Sunrise:   ${sunriseHour}:${sunriseMinute}`;
+  currentSunset.innerHTML = `Sunset:   ${sunsetHour}:${sunsetMinute}`;
   currentIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${iconType}@2x.png`
@@ -166,7 +166,7 @@ function displayForecast(response) {
 
   let precipitation = Math.round(response.data.list[0].pop * 100);
   let currentPrecip = document.querySelector("#precipitation");
-  currentPrecip.innerHTML = `${precipitation} %`;
+  currentPrecip.innerHTML = `Chance of precipitation: ${precipitation} %`;
 
   let currentForecast = document.querySelector("#forecast");
   let forecast = null;
@@ -175,7 +175,7 @@ function displayForecast(response) {
   for (let index = 0; index < 5; index++) {
     let forecast = response.data.list[index];
 
-    currentForecast.innerHTML += `        <div class="col">
+    currentForecast.innerHTML += `        <div class="col-1 thisWeek">
           ${formatHours(forecast.dt * 1000)}
           <br />
           <span class="thisWeekEmoji">
@@ -187,6 +187,19 @@ function displayForecast(response) {
           <br />
           ${Math.round(forecast.main.temp_max)}°
         </div>`;
+  }
+
+  let jacket = document.querySelector("#jacket");
+  let country = response.data.city.country;
+
+  if (precipitation > 50) {
+    jacket.innerHTML = "Take a jacket. It's likely to rain.";
+  } else {
+    if (country === "GB") {
+      jacket.innerHTML = "This is Britain. Always take a jacket.";
+    } else {
+      jacket.innerHTML = "";
+    }
   }
 }
 

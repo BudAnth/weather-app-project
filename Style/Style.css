@@ -124,6 +124,16 @@ h2::first-letter {
   line-height: 60px;
 }
 
+.active {
+  color: black;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: black;
+}
+
 #current-icon {
   display: block;
   margin-left: 0;

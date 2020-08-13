@@ -227,6 +227,8 @@ cityForm.addEventListener("submit", submitForm);
 
 function changeToFahrenheit(event) {
   event.preventDefault();
+  toCelsius.classList.remove("active");
+  toFahrenheit.classList.add("active");
   let currentTempInF = Math.round((currentTempCelsius * 9) / 5 + 32);
   let tempInF = document.querySelector(".temp-number");
   tempInF.innerHTML = `${currentTempInF}°`;
@@ -237,6 +239,8 @@ toFahrenheit.addEventListener("click", changeToFahrenheit);
 
 function changeToCelsius(event) {
   event.preventDefault();
+  toFahrenheit.classList.remove("active");
+  toCelsius.classList.add("active");
   let tempInC = document.querySelector(".temp-number");
   let currentTempInC = Math.round(currentTempCelsius);
   tempInC.innerHTML = `${currentTempInC}°`;

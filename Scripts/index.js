@@ -137,7 +137,7 @@ function displayData(response) {
 
   currentName.innerHTML = `${name}`;
   currentTemperature.innerHTML = `${temperature}°`;
-  currentDescription.innerHTML = `Description: <span id="tt">  ${description} </span>`;
+  currentDescription.innerHTML = `Description: <span class="tt">  ${description} </span>`;
   currentWindspeed.innerHTML = `Windspeed:   ${windspeed} mph`;
   currentHumidity.innerHTML = `Humidity:   ${humidity} %`;
   currentSunrise.innerHTML = `Sunrise:   ${sunriseHour}:${sunriseMinute}`;
@@ -146,10 +146,9 @@ function displayData(response) {
     "src",
     `http://openweathermap.org/img/wn/${iconType}@2x.png`
   );
-
-  //let resetInput = document.querySelector("#city-input");
-  //resetInput.value.reset();
 }
+
+// format the time for use in the forecast
 
 function formatHours(timestamp) {
   let date = new Date(timestamp);
@@ -163,6 +162,8 @@ function formatHours(timestamp) {
   }
   return `${hours}:${minutes}`;
 }
+
+// display the forecast and icons
 
 function displayForecast(response) {
   console.log(response);
@@ -195,6 +196,8 @@ function displayForecast(response) {
   let jacket = document.querySelector("#jacket");
   let country = response.data.city.country;
 
+  // make a comment about the need for a jacket
+
   if (precipitation > 50) {
     jacket.innerHTML = "Take a jacket. It's likely to rain.";
   } else {
@@ -215,6 +218,8 @@ function changeCity(city) {
   apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric`;
   axios.get(`${apiURL}&appid=${apiKey}`).then(displayForecast);
 }
+
+// accept user city input
 
 function submitForm(event) {
   event.preventDefault();
